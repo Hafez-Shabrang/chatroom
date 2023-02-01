@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+  <% if flash[:success] %>
+    <%= render "notification" %>
+  <% end %>
+  <div class="col-md-6">
+    <div class="card text-center my-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= @user.username %></h5>
+        <p class="card-text"><%= @user.email %></p>
+        <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+        <%= link_to "Delete", user_path(@user), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

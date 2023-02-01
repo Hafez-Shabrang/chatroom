@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <%= link_to "CHATROOM", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Users
+          </a>
+          <ul class="dropdown-menu">
+            <%= link_to "List of Users", users_path, class: "dropdown-item" %>
+            <%#= link_to "Create new User", new_user_path, class: "dropdown-item" %>
+          </ul>
+        </li>
+        <% if logged_in? and current_user.is_admin? %>
+          <li class="nav-item">
+            <%= link_to "Delete All Messages", clear_path, class: "btn btn-danger" %>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0 me-5 pe-5">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu">
+            <% if logged_in? %>
+              <p class="dropdown-item">
+                <%= current_user.username %>
+              </p>
+              <%= link_to "Logout", logout_path, class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "Signup", new_user_path, class: "dropdown-item" %>
+              <%= link_to "Signin", login_path, class: "dropdown-item" %>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

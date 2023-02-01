@@ -1,0 +1,36 @@
+<div class="row mt-5">
+  <% if flash[:success] %>
+    <%= render "notification" %>
+  <% end %>
+  <div class="col-md-3">
+    <div class="card user-box">
+      <div class="card-header">
+        Users
+      </div>
+      <% @users.each do |user| %>
+        <p class="px-3 mt-2"><%= user.username %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="card message-box">
+      <div class="card-header">
+        Messages
+      </div>
+      <% @messages.each do |message| %>
+        <div class="px-3 mt-2">
+            <b class="display-inline"><%= message.user.username %>: </b>
+            <span><%= message.body %></span>
+            <small class="text-muted">(<%= message.created_at.hour %>:<%= message.created_at.min %>)</small>
+        </div>
+
+      <% end %>
+      <div id="message-box">
+
+      </div>
+    </div>
+    <div class="row">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
