@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project Dockerized.
 
-Things you may want to cover:
+To run this project please do following tasks
 
-* Ruby version
+1. Install docker on your system
 
-* System dependencies
+2. push this project to your system
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Go to 
